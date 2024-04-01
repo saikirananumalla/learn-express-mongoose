@@ -7,6 +7,12 @@ function getAuthor(family_name, first_name) {
 }
 
 function getGenre(name) {
+  const onlyAlphaNumericPattern = /^[A-Za-z0-9]+$/;
+
+  if(!name.match(onlyAlphaNumericPattern)){
+    throw new Error('Name is not a valid string!');
+  }
+
   return Genre.find({name: name});
 }
 
